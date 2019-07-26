@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map Nav</title>
+    <style>
+    * {
+  padding: 0;
+  margin: 0
+}
+
+#bg {
+  filter: blur(2px) grayscale(100%);
+  opacity: .01;
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  z-index: -1;
+  background-position: center center;
+  background-image: url('https://openmaptiles.org/img/home-banner-map.png');
+}
+
+#map {
+  left: -150px;
+  top: -175px;
+  position: absolute;
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+  background-position: center center;
+  background-image: url('https://openmaptiles.org/img/home-banner-map.png');
+}
+
+#area {
+  border: 5px solid red;
+  position: absolute;
+  left: 150px;
+  top: 175px;
+  overflow: hidden;
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+</style>
+</head>
+<body>
+    <div id="bg"></div>
+<div id="area">
+
+  <div id="map">
+  </div>
+</div>
+
+<div id="route">
+</div>
+
+</body>
+<script>
+
+document.addEventListener('keydown', e => {
+  switch (e.key) {
+    case 'ArrowUp':
+      document.querySelector('#map').style.top = document.querySelector('#map').offsetTop + 2 + 'px'
+      document.querySelector('#bg').style.top = document.querySelector('#bg').offsetTop + 2 + 'px'
+      break;
+    case 'ArrowDown':
+      document.querySelector('#map').style.top = document.querySelector('#map').offsetTop - 2 + 'px'
+      document.querySelector('#bg').style.top = document.querySelector('#bg').offsetTop - 2 + 'px'
+      break;
+    case 'ArrowLeft':
+      document.querySelector('#map').style.left = document.querySelector('#map').offsetLeft + 2 + 'px'
+      document.querySelector('#bg').style.left = document.querySelector('#bg').offsetLeft + 2 + 'px'
+      break;
+    case 'ArrowRight':
+      document.querySelector('#map').style.left = document.querySelector('#map').offsetLeft - 2 + 'px'
+      document.querySelector('#bg').style.left = document.querySelector('#bg').offsetLeft - 2 + 'px'
+      break;
+  }
+})
+</script>
+</html>
